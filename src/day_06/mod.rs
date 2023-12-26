@@ -17,8 +17,8 @@ pub fn execute_day_six_part_one() {
                     let mut split_by_whitespace: Vec<&str> = text.split_whitespace().collect();
 
                     split_by_whitespace.remove(0);
-                    for (index, time ) in split_by_whitespace.iter().enumerate() {
-                        println!("time {:?}", time);
+                    for (index, time) in split_by_whitespace.iter().enumerate() {
+                        // println!("time {:?}", time);
                         races.push((time.parse().unwrap(), 0));
                     }
                 } else {
@@ -27,11 +27,11 @@ pub fn execute_day_six_part_one() {
 
                     split_by_whitespace.remove(0);
 
-                    for (index, distance ) in split_by_whitespace.iter().enumerate() {
-                        println!("distance {:?}", distance);
+                    for (index, distance) in split_by_whitespace.iter().enumerate() {
+                        // println!("distance {:?}", distance);
                         races[index] = (races[index].0, distance.parse().unwrap());
                     }
-                    }
+                }
             }
             _ => {}
         }
@@ -52,10 +52,13 @@ pub fn execute_day_six_part_one() {
         number_of_ways_to_win.push(ways_to_win)
     }
 
-    println!("races {:?}", races);
-    println!("number_of_ways_to_win {:?}", number_of_ways_to_win);
+    // println!("races {:?}", races);
+    // println!("number_of_ways_to_win {:?}", number_of_ways_to_win);
 
-    println!("Day 6_1: {:?}", number_of_ways_to_win.iter().fold(1, |acc, i| acc * i));
+    println!(
+        "Day 6_1: {:?}",
+        number_of_ways_to_win.iter().fold(1, |acc, i| acc * i)
+    );
 }
 
 pub fn execute_day_six_part_two() {
@@ -86,7 +89,7 @@ pub fn execute_day_six_part_two() {
                     split_by_whitespace.remove(0);
 
                     let mut distance_string = "".to_string();
-                    for (index, distance_part ) in split_by_whitespace.iter().enumerate() {
+                    for (index, distance_part) in split_by_whitespace.iter().enumerate() {
                         distance_string.push_str(distance_part);
                     }
 
@@ -110,12 +113,13 @@ pub fn execute_day_six_part_two() {
     }
 
     number_of_ways_to_win.push(ways_to_win);
-    
 
-    println!("time {:?}", time);
-    println!("distance {:?}", distance);
-    println!("number_of_ways_to_win {:?}", number_of_ways_to_win);
+    // println!("time {:?}", time);
+    // println!("distance {:?}", distance);
+    // println!("number_of_ways_to_win {:?}", number_of_ways_to_win);
 
-    println!("Day 6_2: {:?}", number_of_ways_to_win.iter().fold(1, |acc, i| acc * i));
+    println!(
+        "Day 6_2: {:?}",
+        number_of_ways_to_win.iter().fold(1, |acc, i| acc * i)
+    );
 }
-
