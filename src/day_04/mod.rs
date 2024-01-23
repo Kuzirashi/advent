@@ -101,20 +101,24 @@ pub fn execute_day_four_part_two() {
     let mut cards_to_process = cards.clone();
 
     let mut total_cards = 0;
+    let mut index = 0;
     while cards_to_process.len() > 0 {
-        let index = 0;
         let card = cards_to_process[index].clone();
         let cards_won = card.won_card_ids.len();
 
         let total_instances = 1 + card.duplicates;
 
         for i in 0..cards_won {
-            let inner_index = i + 1;
+            let inner_index = index + i + 1;
             cards_to_process[inner_index].duplicates += total_instances;
         }
 
         total_cards += total_instances;
-        cards_to_process = cards_to_process[1..cards_to_process.len()].to_vec();
+        index += 1;
+
+        if (index == cards_to_process.len()) {
+            break;
+        }
     }
 
     println!("Day 4_2: {:?}", total_cards);
